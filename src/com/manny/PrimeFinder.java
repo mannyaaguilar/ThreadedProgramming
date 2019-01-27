@@ -22,7 +22,7 @@ class PrimeFinder extends JFrame implements Runnable, ActionListener {
 
         howManyLabel = new JLabel("Quantity: ");
         howMany = new JTextField("400", 10);
-        display = new JButton("Dispay primes");
+        display = new JButton("Display primes");
         primes = new JTextArea(8, 40);
 
         display.addActionListener(this);
@@ -39,7 +39,7 @@ class PrimeFinder extends JFrame implements Runnable, ActionListener {
         setVisible(true);
     }
 
-    public void ActionPerformed(ActionEvent event) {
+    public void actionPerformed(ActionEvent event) {
         display.setEnabled(false);
         if (go == null) {
             go = new Thread(this);
@@ -53,7 +53,7 @@ class PrimeFinder extends JFrame implements Runnable, ActionListener {
         // candidate: the number that might be prime
         int candidate = 2;
 
-        primes.append("First " + quantity + " primes");
+        primes.append("First " + quantity + " primes: ");
         while (numPrimes < quantity) {
             if (isPrime(candidate)) {
                 primes.append(candidate + " ");
@@ -85,10 +85,6 @@ class PrimeFinder extends JFrame implements Runnable, ActionListener {
 
     public static void main(String[] args) {
 	PrimeFinder fp = new PrimeFinder();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
     }
 }
